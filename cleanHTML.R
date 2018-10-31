@@ -22,7 +22,7 @@ cleanHTML<-function(w){
     
     w<-gsub(pattern="  ",replacement=" ",x=w)
     
-    w<-gsub(pattern="nbsb",replacement="",x=w,fixed=T)
+    w<-gsub(pattern="nbsp",replacement="",x=w,fixed=T)
     
     return(w)
     
@@ -34,7 +34,7 @@ cleanHTML<-function(w){
     
     w<-gsub(pattern="  ",replacement=" ",x=w)
     
-    w<-gsub(pattern="nbsb",replacement="",x=w,fixed=T)
+    w<-gsub(pattern="nbsp",replacement="",x=w,fixed=T)
     
     return(w)
     
