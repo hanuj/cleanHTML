@@ -1,6 +1,6 @@
 cleanHTML<-function(w){
   
-  if(grepl(pattern="<",x=w)){
+  if(grepl(pattern="<",x=w,fixed=T)){
     
     l<-gregexpr(pattern="<",text=w,fixed=T)[[1]]
     
