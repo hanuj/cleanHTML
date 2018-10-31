@@ -1,7 +1,5 @@
 cleanHTML<-function(w){
   
-  w<-lessons_text$Text[3]
-  
   l<-gregexpr(pattern="<",text=w,fixed=T)[[1]]
   
   for(k in 1:length(l)){
