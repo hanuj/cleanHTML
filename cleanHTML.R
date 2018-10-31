@@ -13,7 +13,7 @@ cleanHTML<-function(w){
       a<-substr(x=w,start=i,stop=j)
       
       w<-gsub(pattern=a,replacement="",x=w,fixed=T)
-    
+      
     }
     
     w<-gsub(pattern="[^a-zA-Z0-9\\.,:/ ]",replacement="",x=w)
@@ -21,6 +21,8 @@ cleanHTML<-function(w){
     w<-trimws(w)
     
     w<-gsub(pattern="  ",replacement=" ",x=w)
+    
+    w<-gsub(pattern="nbsb",replacement="",x=w,fixed=T)
     
     return(w)
     
@@ -31,6 +33,8 @@ cleanHTML<-function(w){
     w<-trimws(w)
     
     w<-gsub(pattern="  ",replacement=" ",x=w)
+    
+    w<-gsub(pattern="nbsb",replacement="",x=w,fixed=T)
     
     return(w)
     
