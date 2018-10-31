@@ -1,6 +1,6 @@
 cleanHTML<-function(w){
   
-  if(grepl(pattern="<",x=w,fixed=T)){
+  if(grepl(pattern="<",x=w)){
     
     l<-gregexpr(pattern="<",text=w,fixed=T)[[1]]
     
@@ -9,6 +9,8 @@ cleanHTML<-function(w){
       i<-gregexpr(pattern="<",text=w,fixed=T)[[1]]
       
       j<-gregexpr(pattern=">",text=w,fixed=T)[[1]]
+      
+      if(i==-1){break}
       
       if(length(i)==1){
         
@@ -27,6 +29,16 @@ cleanHTML<-function(w){
       }
       
     }
+    
+    w<-gsub(pattern="[^a-zA-Z0-9\\.,:/ ]",replacement="",x=w)
+    
+    w<-trimws(w)
+    
+    w<-gsub(pattern="  ",replacement=" ",x=w)
+    
+    return(w)
+    
+  }else{
     
     w<-gsub(pattern="[^a-zA-Z0-9\\.,:/ ]",replacement="",x=w)
     
