@@ -1,37 +1,41 @@
 cleanHTML<-function(w){
   
-  l<-gregexpr(pattern="<",text=w,fixed=T)[[1]]
-  
-  for(k in 1:length(l)){
+  if(grepl(pattern="<",x=w)){
     
-    i<-gregexpr(pattern="<",text=w,fixed=T)[[1]]
+    l<-gregexpr(pattern="<",text=w,fixed=T)[[1]]
     
-    j<-gregexpr(pattern=">",text=w,fixed=T)[[1]]
-    
-    if(length(i)==1){
+    for(k in 1:length(l)){
       
-      a<-substr(x=w,start=i,stop=j)
+      i<-gregexpr(pattern="<",text=w,fixed=T)[[1]]
       
-      w<-gsub(pattern=a,replacement="",x=w,fixed=T)
+      j<-gregexpr(pattern=">",text=w,fixed=T)[[1]]
       
-      break
-      
-    }else{
-      
-      a<-substr(x=w,start=i[k],stop=j[k])
-      
-      w<-gsub(pattern=a,replacement="",x=w,fixed=T)
+      if(length(i)==1){
+        
+        a<-substr(x=w,start=i,stop=j)
+        
+        w<-gsub(pattern=a,replacement="",x=w,fixed=T)
+        
+        break
+        
+      }else{
+        
+        a<-substr(x=w,start=i[k],stop=j[k])
+        
+        w<-gsub(pattern=a,replacement="",x=w,fixed=T)
+        
+      }
       
     }
- 
+    
+    w<-gsub(pattern="[^a-zA-Z0-9\\.,:/ ]",replacement="",x=w)
+    
+    w<-trimws(w)
+    
+    w<-gsub(pattern="  ",replacement=" ",x=w)
+    
+    return(w)
+    
   }
-  
-  w<-gsub(pattern="[^a-zA-Z0-9\\.,:/ ]",replacement="",x=w)
-  
-  w<-trimws(w)
-  
-  w<-gsub(pattern="  ",replacement=" ",x=w)
-  
-  return(w)
-  
+    
 }
