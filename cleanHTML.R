@@ -6,7 +6,11 @@ cleanHTML<-function(w){
       
       i<-regexpr(pattern="<",text=w,fixed=T)[[1]]
       
-      if(i==-1){break}
+      if(i==-1){
+        
+        break
+      
+      }
       
       j<-regexpr(pattern=">",text=w,fixed=T)[[1]]
       
